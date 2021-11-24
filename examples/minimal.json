@@ -22,6 +22,8 @@
   "globals": {
     "default": {
       "options": {
+        "vfs objects": "fileid",
+        "fileid:algorithm": "fsid",
         "security": "user",
         "server min protocol": "SMB2",
         "load printers": "no",

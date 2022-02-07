@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 
-from sambacc import samba_cmds
+from sambacc import samba_cmds, ctdb
 
 from .cli import commands, Context, Fail
 
@@ -35,5 +35,7 @@ def check(ctx: Context) -> None:
     if ctx.cli.target == "winbind":
         cmd = samba_cmds.wbinfo["--ping"]
         samba_cmds.execute(cmd)
+    elif ctx.cli.target == "ctdb-nodestatus":
+        ctdb.check_nodestatus()
     else:
         raise Fail("unknown subsystem: {}".format(ctx.cli.target))
